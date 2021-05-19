@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<body>
+	
+		<table class="w3-table-all w3-hoverable" >
+			<tr th:each="Name:${EtiquetaBD}">
+				<td th:text="${Name.DNI}"></td>
+				<td th:text="${Name.fullName}"></td>
+				<td th:text="${Name.firstName}"></td>
+				<td th:text="${Name.lastName}"></td>
+				<td th:text="${Name.Name}"></td>
+				<td th:text="${Name.username}"></td>
+				
+				<!-- <td> <a th:href=@{DeleteChamp(CampeonEliminar=${Champ.Champ})}>  Eliminar Campeon</a> </td>
+				< td> <a th:href=@{UpdateChamp(CampeonActualizar=${Champ.Champ})}>  Actualizar Campeon</a> </td>-->
+			</tr>
+		</table>
+		<a th:href=@{/Santander/newChamp}> Añadir Campeon</a>
+</body>
+</html>
+
+
