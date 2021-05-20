@@ -8,12 +8,17 @@
 <body>
 	
 		<table class="w3-table-all w3-hoverable" >
+		<tr> 	
+				<td >DNI</td>
+				<td >First Name</td>
+				<td >Last Name</td>
+				<td >Username</td>
+		 </tr>
 			<tr th:each="Name:${EtiquetaBD}">
+			
 				<td th:text="${Name.DNI}"></td>
-				<td th:text="${Name.fullName}"></td>
 				<td th:text="${Name.firstName}"></td>
 				<td th:text="${Name.lastName}"></td>
-				<td th:text="${Name.Name}"></td>
 				<td th:text="${Name.username}"></td>
 				
 				<!-- <td> <a th:href=@{DeleteChamp(CampeonEliminar=${Champ.Champ})}>  Eliminar Campeon</a> </td>

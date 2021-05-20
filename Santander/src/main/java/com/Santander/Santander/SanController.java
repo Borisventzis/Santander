@@ -13,13 +13,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class SanController {
 
 	@Autowired
-	//NameRepository servicio;
-	SanService servicio;
+	NameRepository servicio;
+	//SanService servicio;
 	@RequestMapping("/Usuarios")
 	public String ObtenerDatos(Model model) {
-		model.addAttribute("EtiquetaBD",servicio.ShowAll());
+		model.addAttribute("EtiquetaBD",servicio.findAll());
 		return "Usuarios";
 	}
+	
+	
 	/*
 	 * @RequestMapping("/newChamp") public String NuevoCampeon(Champs champ ,Model
 	 * model) {
