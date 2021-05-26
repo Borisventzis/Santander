@@ -1,42 +1,48 @@
 package com.Santander.Santander;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.data.mongodb.core.mapping.Document;
 
 
-@Entity
-@Table(name = "Name")
+@Document(collection = "Usuarios")
 public class Name {
 
 	// fields-----------------------------
 	@Id
-	private long DNI;
-	public Name(long dNI, String firstName, String lastName) {
-		super();
-		DNI = dNI+1;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		
-		this.username = firstName+"."+lastName;
-	}
+	
 
 	private String firstName;
 	private String lastName;
 	private String username;
-
+	
+	private ArrayList<Address> address;
 	// constructors-----------------------
 	public Name() {
 		super();
 	}
+	private String DNI;
+	public Name(String dNI, String firstName, String lastName,ArrayList<Address> address) {
+		super();
+		this.DNI=dNI;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.username = firstName+"."+lastName;
+		this.address = address;
+	}
+	
 
 
-	public long getDNI() {
+	public String getDNI() {
 		return DNI;
 	}
 
-	public void setDNI(long dNI) {
+	public void setDNI(String dNI) {
 		DNI = dNI;
 	}
 
@@ -67,7 +73,15 @@ public class Name {
 		this.username = username;
 	}
 
+	public List<Address> getAddress() {
+		return address;
+	}
 
+
+
+	public void setAddress(ArrayList<Address> address) {
+		this.address = address;
+	}
 	@Override
 	public String toString() {
 		return "Name [DNI=" + DNI + ", firstName=" + firstName + ", lastName=" + lastName + ", username=" + username

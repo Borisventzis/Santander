@@ -3,6 +3,7 @@ package com.Santander.Santander;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -38,7 +39,7 @@ public class NameRestController {
 }
 
 @DeleteMapping("/eliminarUsuario/{DNI}")	
-public void DeleteChamp(@PathVariable long DNI) {
+public void DeleteChamp(@PathVariable String DNI) {
 		if (servicio.findById(DNI) != null) {
 			servicio.deleteById(DNI);;
 			
@@ -47,7 +48,7 @@ public void DeleteChamp(@PathVariable long DNI) {
 }
 
 @PutMapping("/actualizarUsuario/{dni}")
-public Optional<Name> updateUser(@RequestBody Name name, @PathVariable Long dni) {
+public Optional<Name> updateUser(@RequestBody Name name, @PathVariable String dni) {
 	Optional<Name> Usuario = servicio.findById(dni);
 
 	if (Usuario.isPresent()) {
