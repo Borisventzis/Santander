@@ -88,7 +88,7 @@ public class NameController {
 		  	else
 		  		{
 		  								
-		  			return "ChampNotFound";
+		  			return "UserNotFound";
 		  		}
 	
 	  																							}																		
