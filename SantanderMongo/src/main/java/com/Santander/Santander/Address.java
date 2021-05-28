@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 import org.springframework.data.mongodb.core.mapping.Document;
-///Classe Address123
+///Classe Address1235645
 @Document
 public class Address {
 
