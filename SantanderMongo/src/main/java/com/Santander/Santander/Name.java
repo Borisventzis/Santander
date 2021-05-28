@@ -16,7 +16,6 @@ public class Name {
 	// fields-----------------------------
 	@Id
 	
-
 	private String firstName;
 	private String lastName;
 	private String username;

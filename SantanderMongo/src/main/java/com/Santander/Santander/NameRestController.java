@@ -41,7 +41,7 @@ public class NameRestController {
 @DeleteMapping("/eliminarUsuario/{DNI}")	
 public void DeleteChamp(@PathVariable String DNI) {
 		if (servicio.findById(DNI) != null) {
-			servicio.deleteById(DNI);;
+			servicio.deleteById(DNI);
 			
 		}
 		
