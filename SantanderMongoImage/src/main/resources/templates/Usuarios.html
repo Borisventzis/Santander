@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<body>
+	
+		<table class="w3-table-all w3-hoverable" >
+		<tr> 	
+				<td >DNI</td>
+				<td >First Name</td>
+				<td >Last Name</td>
+				<td >Username</td>
+		 </tr>
+			<tr th:each="Name:${EtiquetaBD}">
+			
+				<td th:text="${Name.DNI}"></td>
+				<td th:text="${Name.firstName}"></td>
+				<td th:text="${Name.lastName}"></td>
+				<td th:text="${Name.username}"></td>
+				
+				 <td> <a th:href=@{eliminarUsuario(UsuarioEliminar=${Name.id})}>  Eliminar Usuario</a> </td>
+				 <td> <a th:href=@{actualizarUsuario(UsuarioActualizar=${Name.id})}>  Actualizar Usuario</a> </td>
+				
+			</tr>
+		</table>
+		<a th:href=@{/Santander/nuevoUsuario}> Agregar Usuario</a>
+</body>
+</html>
+
+
