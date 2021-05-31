@@ -14,7 +14,7 @@ import com.github.javafaker.Faker;
 
 public class PhoneFillingRunner implements CommandLineRunner {
 	
-	private static final Logger logger = LoggerFactory.getLogger(NameFillingRunner.class);
+	private static final Logger logger = LoggerFactory.getLogger(PhoneFillingRunner.class);
 
 @Autowired
 	PhoneNumberRepository phoneNumberRepository;
