@@ -1,52 +1,55 @@
 package com.Santander.Santander;
 
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "PhoneNumber")
+@Document
 
 public class PhoneNumber {
-
 	
-	//-----Fields------
-@Id
-private String cellPhone;
+	private String DNI;
+	private PhoneNumber cellPhone;
+	
+	
+	/*public PhoneNumber(String dNI,PhoneNumber phoneNumber) {
+		super();
+		DNI = dNI;
+		this.cellPhone = phoneNumber;
+	}*/
 
-//------Constructors-----
-public PhoneNumber(String cellPhone) {
-	super();
-}
+	public PhoneNumber(com.github.javafaker.PhoneNumber phoneNumber) {
+		// TODO Esbozo de constructor generado automáticamente
+	}
 
-private String DNI;
+	public PhoneNumber(String dNI, com.github.javafaker.PhoneNumber phoneNumber) {
+		// TODO Esbozo de constructor generado automáticamente
+	}
 
-public PhoneNumber(String cellPhone, String dNI) {
-	super();
-	this.cellPhone = cellPhone;
-	this.DNI = dNI;
-}
-
-public String getCellPhone() {
-	return cellPhone;
-}
-
-public void setCellPhone(String cellPhone) {
-	this.cellPhone = cellPhone;
-}
-
-public String getDNI() {
-	return DNI;
-}
-
-public void setDNI(String dNI) {
-	DNI = dNI;
-}
-
-@Override
-public String toString() {
-	return "PhoneNumber [cellPhone=" + cellPhone + ", DNI=" + DNI + "]";
-}
+	public String getDNI() {
+		return DNI;
+	}
 
 
+	public void setDNI(String dNI) {
+		DNI = dNI;
+	}
 
+
+	public PhoneNumber getCellPhone() {
+		return cellPhone;
+	}
+
+
+	public void setCellPhone(PhoneNumber phonenumber) {
+		this.cellPhone = phonenumber;
+	}
+
+
+	@Override
+	public String toString() {
+		return "PhoneNumber [DNI=" + DNI + ", cellPhone=" + cellPhone + "]";
+	}
+	
+	
+	
 	
 }

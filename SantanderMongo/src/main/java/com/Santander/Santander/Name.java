@@ -3,10 +3,7 @@ package com.Santander.Santander;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
-
 import org.springframework.data.mongodb.core.mapping.Document;
 
 

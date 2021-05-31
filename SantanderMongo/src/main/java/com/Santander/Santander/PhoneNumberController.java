@@ -14,92 +14,88 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/Santander")
 
 public class PhoneNumberController {
-@Autowired
-	PhoneNumberRepository servicio;
 	
-//Lista números de móvil 
+@Autowired
+PhoneNumberRepository servicio;
+
+//Lista Móviles
 
 @RequestMapping("/PhoneNumber")
-public String obtenerDatos(Model model) {
-	model.addAttribute("EtiquetaBD", servicio.findAll());
-	return "PhoneNumber";
-	
+public String ObtenerDatos(Model model) {
+	model.addAttribute("EtiquetaBD",servicio.findAll());
+	return "ListPhoneNumber";
 }
 
-//Añade número de móvil
-@RequestMapping("/addPhoneNumber") 
-public String addPhoneNumber(PhoneNumber phonenumber, Model model) {
-	phonenumber.setCellPhone(phonenumber.getCellPhone());
-	phonenumber.setDNI(phonenumber.getDNI()+1);
-	servicio.save(phonenumber);
-	return "redirect:/Santander/PhoneNumber";
-}
-
-@RequestMapping("/newPhoneNumber") 
-public String newPhoneNumber(PhoneNumber phonenumber, Model model) {
-	return "NewPhoneNumber";
-	
-}
+//Añade Móviles
+@RequestMapping("/addPhoneNumber") public String addPhoneNumber(PhoneNumber phonenumber ,Model model) {
+	  
+	 servicio.save(phonenumber);
+ 
+ return "redirect:/Santander/ListPhoneNumber"; 
+ }
 
 
-//Eliminar número de móvil
+@RequestMapping("/newPhoneNumber") public String NewPhoneNumber(Model model) {
 
-@RequestMapping("delPhoneNumber")
-public String deletePhoneNumber(@RequestParam("DeletePhoneNumber") String dni, Model model) {
-	
-	Optional<PhoneNumber> PhoneNumber = servicio.findById(dni);
-	
-	if (PhoneNumber.isPresent()) {
-		servicio.deleteById(dni);
-		model.addAttribute("EtiquetaBD", servicio.findAll());
-		return "DeletePhoneNumber";
-				
-	}
-	
-	else {
-		return "UserNotFound";
-	}
-	
-}
+return "newPhoneNumber"; }
 
-//Actualizar número de móvil
 
-@PostMapping("replacePhoneNumber/{PhoneNumber}")
-public String Update(@PathVariable("PhoneNumber") String dni, PhoneNumber phonenumber, Model model) {
-	
-	Optional<PhoneNumber> PhoneNumber = servicio.findById(dni);
-	
-	if (PhoneNumber.isPresent()) {
-		//System.out.println("Encuentra el número del Móvil"); 
-		servicio.deleteById(dni);
-		phonenumber.setCellPhone(phonenumber.getCellPhone());
-		servicio.save(phonenumber);
-		System.out.println("Lo agrega a la bd"); 
-		return "redirect:/Santander/PhoneNumber";
-	}
-	
-	else {
-		//System.out.println("No encuentra el número del Móvil");
-		return "UserNotFound"; 
-	}
-	
+//Elimina Móviles
+
+@RequestMapping("/delPhoneNumber")
+public String delPhoneNumber(@RequestParam("delPhoneNumber") String dni, Model model) {
+
+	  Optional<PhoneNumber> phonenumber = servicio.findById(dni);
+
+	  if (phonenumber.isPresent()) {
+		  servicio.deleteById(dni);
+		  model.addAttribute("EtiquetaBD",servicio.findAll()); 
+		  return  "deletePhoneNumber";
+	  							}
+
+	  			else { 
+	  			return "PhoneNumberNotFound";}
 }
 
 
-@RequestMapping("/updatePhoneNumber")
-public String UpdatePhoneNumber(@RequestParam("UpdatePhoneNumber") String dni, Model model) { 
-	Optional<PhoneNumber> PhoneNumber = servicio.findById(dni);
-	
-	if (PhoneNumber.isPresent()) { 
-		model.addAttribute("PhoneNumberFromDB", PhoneNumber.get());
-	    return "UpdatePhoneNumber";	
+//Actualiza Número de Móvil
+
+@PostMapping("/repPhoneNumber/{PhoneNumberUpdate}") 
+public String Update(@PathVariable("PhoneNumberUpdate") String dni ,PhoneNumber phonenumber ,Model model) {
+
+	  Optional<PhoneNumber> phoneNumber = servicio.findById(dni);
+
+if (phoneNumber.isPresent()) {
 			
-	}
-	
-	else {
-		return "UserNotFound";
-	}
+			servicio.deleteById(dni);
+			
+			servicio.save(phonenumber);
+		
+			return "redirect:/Santander/NumberUpdate";
+							} 
+				  else
+				  { 
+					  System.out.println("No encuentra el número de móvil"); 
+					  return "PhoneNumberNotFound"; 
+				  }
 }
+
+@RequestMapping("/updPhoneNumber")
+public String UpdatePhoneNumber(@RequestParam("UpdatePhoneNumber") String dni, Model model) {
+	 Optional<PhoneNumber> phonenumber = servicio.findById(dni);
+	 
+	  	if (phonenumber.isPresent()) {
+	  		
+	  	model.addAttribute("phonenumberFromDB", phonenumber.get());
+	    return "UpdatePhoneNumber";						
+	  								}
+	  	else
+	  		{
+	  								
+	  			return "PhoneNumberNotFound";
+	  		}
+
+																							}
 
 
 }

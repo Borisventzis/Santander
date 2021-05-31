@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//ES">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<title>Listado de Móviles</title>
+
+<body>
+	
+		<table class="w3-table-all w3-hoverable" >
+		<tr> 	
+				<td >DNI</td>
+				<td >Phone Number</td>
+		 </tr>
+			<tr th:each="Name:${EtiquetaBD}">
+			
+				<td th:text="${PhoneNumber.DNI}"></td>
+				<td th:text="${PhoneNumber.Phone}"></td>
+				 <td> <a th:href=@{delPhoneNumber(delPhoneNumber=${PhoneNumber.DNI})}>  Eliminar Usuario</a> </td>
+				 <td> <a th:href=@{updPhoneNumber(UpdatePhoneNumber=${PhoneNumber.DNI})}>  Actualizar Usuario</a> </td>
+				
+			</tr>
+		</table>
+		<a th:href=@{/Santander/newPhoneNumber}> Agregar Usuario</a>
+</body>
+</html>
+
+
