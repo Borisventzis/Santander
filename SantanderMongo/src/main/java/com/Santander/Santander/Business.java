@@ -7,13 +7,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Business {
 	
 	private String DNI;
-	private Business creditCardNumber;
+	private String creditCardNumber;
 	private String creditCardExpiry;
 	private String creditCardType;
 	
 	
 	
-	public Business(String dNI, Business creditCardNumber, String creditCardExpiry, String creditCardType) {
+	public Business(String dNI, String creditCardNumber, String creditCardExpiry, String creditCardType) {
 		super();
 		DNI = dNI;
 		this.creditCardNumber = creditCardNumber;
@@ -50,13 +50,13 @@ public class Business {
 
 
 
-	public Business getCreditCardNumber() {
+	public String getCreditCardNumber() {
 		return creditCardNumber;
 	}
 
 
 
-	public void setCreditCardNumber(Business business) {
+	public void setCreditCardNumber(String business) {
 		this.creditCardNumber = business;
 	}
 
@@ -80,8 +80,8 @@ public class Business {
 
 
 
-	public void setCreditCardType(String creditCardType) {
-		this.creditCardType = creditCardType;
+	public void setCreditCardType(String business) {
+		this.creditCardType = business;
 	}
 
 

@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Listado de Tarjetas</title>
+</head>
+<body>
+
+<table class="w3-table-all w3-hoverable" >
+		<tr> 	
+				<td >DNI</td>
+				<td >Credit Card Number</td>
+				<td >Credit Card Expiry</td>
+				<td >Credit Card Type</td>
+		 </tr>
+			<tr th:each="Business:${EtiquetaBD}">
+			
+				<td th:text="${Business.DNI}"></td>
+				<td th:text="${Business.creditCardNumber}"></td>
+				<td th:text="${Business.creditCardExpiry}"></td>
+				<td th:text="${Business.creditCardType}"></td>
+				
+				 <td> <a th:href=@{delBusiness(delBusiness=${Business.DNI})}>Eliminar Tarjeta de Crédito</a> </td>
+				 <td> <a th:href=@{updBusiness(UpdateBusiness=${Business.DNI})}>Actualizar Tarjeta de Crédito</a> </td>
+				
+			</tr>
+		</table>
+		<a th:href=@{/Santander/newBusiness}> Agregar Tarjeta de Crédito</a>
+
+</body>
+</html>

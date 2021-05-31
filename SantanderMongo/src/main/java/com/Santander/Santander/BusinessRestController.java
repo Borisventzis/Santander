@@ -49,7 +49,10 @@ public class BusinessRestController {
 		Optional<Business> Business = servicio.findById(DNI);
 		
 		if (Business.isPresent()) {
-			Business.get().setCreditCardNumber(Business.get());
+			Business.get().setCreditCardNumber(business.getCreditCardNumber());
+			Business.get().setCreditCardType(business.getCreditCardType());
+			Business.get().setCreditCardExpiry(business.getCreditCardExpiry());
+			
 			servicio.save(Business.get());
 			return Business;
 			

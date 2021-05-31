@@ -12,16 +12,16 @@
 				<td >DNI</td>
 				<td >Phone Number</td>
 		 </tr>
-			<tr th:each="Name:${EtiquetaBD}">
+			<tr th:each="PhoneNumber:${EtiquetaBD}">
 			
 				<td th:text="${PhoneNumber.DNI}"></td>
 				<td th:text="${PhoneNumber.Phone}"></td>
-				 <td> <a th:href=@{delPhoneNumber(delPhoneNumber=${PhoneNumber.DNI})}>  Eliminar Usuario</a> </td>
-				 <td> <a th:href=@{updPhoneNumber(UpdatePhoneNumber=${PhoneNumber.DNI})}>  Actualizar Usuario</a> </td>
+				 <td> <a th:href=@{delPhoneNumber(delPhoneNumber=${PhoneNumber.DNI})}>  Eliminar Número de Móvil</a> </td>
+				 <td> <a th:href=@{updPhoneNumber(UpdatePhoneNumber=${PhoneNumber.DNI})}>Actualizar Número de Móvil</a> </td>
 				
 			</tr>
 		</table>
-		<a th:href=@{/Santander/newPhoneNumber}> Agregar Usuario</a>
+		<a th:href=@{/Santander/newPhoneNumber}> Agregar Número de Móvil</a>
 </body>
 </html>
 
