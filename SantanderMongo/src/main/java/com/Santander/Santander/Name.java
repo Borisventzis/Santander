@@ -16,22 +16,39 @@ public class Name {
 	private String firstName;
 	private String lastName;
 	private String username;
-	
+	private PhoneNumber phone;
 	private ArrayList<Address> address;
 	// constructors-----------------------
+	
+	private String DNI;
+	
 	public Name() {
 		super();
 	}
-	private String DNI;
-	public Name(String dNI, String firstName, String lastName,ArrayList<Address> address) {
+	
+
+	public Name(String dNI, String firstName, String lastName,PhoneNumber phone,ArrayList<Address> address) {
 		super();
 		this.DNI=dNI;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.username = firstName+"."+lastName;
+		this.phone=phone;
 		this.address = address;
 	}
 	
+
+
+	public PhoneNumber getPhone() {
+		return phone;
+	}
+
+
+
+	public void setPhone(PhoneNumber phone) {
+		this.phone = phone;
+	}
+
 
 
 	public String getDNI() {
@@ -69,20 +86,23 @@ public class Name {
 		this.username = username;
 	}
 
-	public List<Address> getAddress() {
+	public ArrayList<Address> getAddress() {
 		return address;
 	}
 
 
 
-	public void setAddress(ArrayList<Address> address) {
-		this.address = address;
+	public void setAddress(ArrayList<Address> list) {
+		this.address = list;
 	}
+
+
 	@Override
 	public String toString() {
-		return "Name [DNI=" + DNI + ", firstName=" + firstName + ", lastName=" + lastName + ", username=" + username
-				+ "]";
+		return "Name [firstName=" + firstName + ", lastName=" + lastName + ", username=" + username + ", phone=" + phone
+				+ ", address=" + address + ", DNI=" + DNI + "]";
 	}
+	
 
 	
 }

@@ -30,7 +30,7 @@ public void run(String... args) throws Exception {
 	
 	if(phoneNumberRepository.count() < 0) 			{
 		while(i<100100) {
-			PhoneNumber phoneNumber = new PhoneNumber(generador.phoneNumber());
+			PhoneNumber phoneNumber = new PhoneNumber(generador.phoneNumber().cellPhone());
 			list.add(phoneNumber);
 			PhoneNumber crearObjeto = new PhoneNumber("i"+i, generador.phoneNumber());
 			phoneNumberRepository.save(crearObjeto);	

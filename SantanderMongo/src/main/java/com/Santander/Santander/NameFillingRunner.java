@@ -26,19 +26,22 @@ public class NameFillingRunner implements CommandLineRunner {
 		ArrayList<Address> list =  new ArrayList<Address>();
 		
 		
-			if(nameRepository.count() < 0) 			{
+		//	if(nameRepository.count() < 0) 			{
 					while(i<100100) {
 						Address address = new Address(generador.address().fullAddress());
 						list.add(address);
-					Name crearObjeto = new Name("i"+i, generador.name().firstName(), generador.name().lastName(),list);
+						
+						PhoneNumber phone = new PhoneNumber();
+						phone.setCellPhone(generador.phoneNumber().cellPhone());
+					Name crearObjeto = new Name("i"+i, generador.name().firstName(), generador.name().lastName(),phone,list);
 					nameRepository.save(crearObjeto);	
 					list.removeAll(list);
 					i++;
 			
 									}
-												}
+										//		}
 		
-	//	nameRepository.deleteAll();
+		//nameRepository.deleteAll();
 		nameRepository.findAll().forEach((book) -> {
 			logger.info("{}", book);
 		}

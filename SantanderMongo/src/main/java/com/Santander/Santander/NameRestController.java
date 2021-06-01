@@ -56,6 +56,8 @@ public Optional<Name> updateUser(@RequestBody Name name, @PathVariable String dn
 		Usuario.get().setFirstName(name.getFirstName());
 		Usuario.get().setLastName(name.getLastName());
 		Usuario.get().setUsername(name.getFirstName()+"."+name.getLastName());
+		Usuario.get().setAddress(name.getAddress());
+		Usuario.get().setPhone(name.getPhone());
 		servicio.save(Usuario.get());
 		return Usuario;
 	} else {
