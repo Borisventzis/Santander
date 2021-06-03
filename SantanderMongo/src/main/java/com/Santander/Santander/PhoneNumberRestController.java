@@ -33,27 +33,27 @@ public class PhoneNumberRestController {
 	}
 	
 	@DeleteMapping("/delPhoneNumber/{DNI}")
-	public void DeleteChamp(@PathVariable String DNI) {
+	public void DeletePN(@PathVariable String DNI) {
 		if (servicio.findById(DNI) != null) {
 			servicio.deleteById(DNI);
 		}
 	}
 	
+	
 	@PutMapping("/updatePhoneNumber/{DNI}")
-	public Optional<PhoneNumber> updatePhoneNumber(@RequestBody PhoneNumber phonenumber,  @PathVariable String DNI) {
-		Optional<PhoneNumber> PhoneNumber = servicio.findById(DNI);
+	public Optional<PhoneNumber> updatePhoneNumber(@RequestBody PhoneNumber phoneNumber,  @PathVariable String DNI) {
+		Optional<PhoneNumber> PhoneNumber = servicio.findById(DNI); 
+	
+	if (PhoneNumber.isPresent()) {
+		PhoneNumber.get().setCellPhone(phoneNumber.getCellPhone());
 		
-		if (PhoneNumber.isPresent()) {
-			PhoneNumber.get().setCellPhone(PhoneNumber.get());
-			servicio.save(PhoneNumber.get());
-			return PhoneNumber;
-			
-		} else {
-			
-			return PhoneNumber;
-		}
+		servicio.save(PhoneNumber.get());
+		return PhoneNumber;
+	}
+	else {
+		
+		return PhoneNumber;
+	}
 			
 	}
-	
-	
 }

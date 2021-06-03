@@ -4,7 +4,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
 
-public class Business {
+public class Business { 
 	
 	private String DNI;
 	private String creditCardNumber;
@@ -22,20 +22,10 @@ public class Business {
 	}
 
 
-
-
-	public Business(com.github.javafaker.Business business) {
-		// TODO Esbozo de constructor generado automáticamente
+	public Business() {
+		super();
+	
 	}
-
-
-
-
-	public Business(String string, com.github.javafaker.Business business) {
-		// TODO Esbozo de constructor generado automáticamente
-	}
-
-
 
 
 	public String getDNI() {
@@ -43,11 +33,9 @@ public class Business {
 	}
 
 
-
 	public void setDNI(String dNI) {
 		DNI = dNI;
 	}
-
 
 
 	public String getCreditCardNumber() {
@@ -55,11 +43,9 @@ public class Business {
 	}
 
 
-
-	public void setCreditCardNumber(String business) {
-		this.creditCardNumber = business;
+	public void setCreditCardNumber(String creditCardNumber) {
+		this.creditCardNumber = creditCardNumber;
 	}
-
 
 
 	public String getCreditCardExpiry() {
@@ -67,11 +53,9 @@ public class Business {
 	}
 
 
-
 	public void setCreditCardExpiry(String creditCardExpiry) {
 		this.creditCardExpiry = creditCardExpiry;
 	}
-
 
 
 	public String getCreditCardType() {
@@ -79,11 +63,9 @@ public class Business {
 	}
 
 
-
-	public void setCreditCardType(String business) {
-		this.creditCardType = business;
+	public void setCreditCardType(String creditCardType) {
+		this.creditCardType = creditCardType;
 	}
-
 
 
 	@Override
@@ -91,7 +73,7 @@ public class Business {
 		return "Business [DNI=" + DNI + ", creditCardNumber=" + creditCardNumber + ", creditCardExpiry="
 				+ creditCardExpiry + ", creditCardType=" + creditCardType + "]";
 	}
-
+	
 	
 	
 	

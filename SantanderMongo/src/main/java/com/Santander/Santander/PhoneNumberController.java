@@ -23,34 +23,34 @@ PhoneNumberRepository servicio;
 @RequestMapping("/PhoneNumber")
 public String ObtenerDatos(Model model) {
 	model.addAttribute("EtiquetaBD",servicio.findAll());
-	return "ListPhoneNumber";
+	return "Usuarios";
 }
 
 //Añade Móviles
-@RequestMapping("/addPhoneNumber") public String addPhoneNumber(PhoneNumber phonenumber ,Model model) {
+@RequestMapping("/newPhoneNumber") public String newPhoneNumber(PhoneNumber phonenumber ,Model model) {
 	  
 	 servicio.save(phonenumber);
  
- return "redirect:/Santander/ListPhoneNumber"; 
+ return "redirect:/Santander/PhoneNumber"; 
  }
 
 
-@RequestMapping("/newPhoneNumber") public String NewPhoneNumber(Model model) {
+@RequestMapping("/nuevoPhoneNumber") public String NuevoPhoneNumber(Model model) {
 
-return "newPhoneNumber"; }
+return "nuevophonenumber"; }
 
 
 //Elimina Móviles
 
-@RequestMapping("/delPhoneNumber")
-public String delPhoneNumber(@RequestParam("delPhoneNumber") String dni, Model model) {
+@RequestMapping("/eliminarPhoneNumber")
+public String EliminarPhoneNumber(@RequestParam("PhoneNumberEliminar") String dni, Model model) {
 
 	  Optional<PhoneNumber> phonenumber = servicio.findById(dni);
 
 	  if (phonenumber.isPresent()) {
 		  servicio.deleteById(dni);
 		  model.addAttribute("EtiquetaBD",servicio.findAll()); 
-		  return  "deletePhoneNumber";
+		  return  "DeletePhoneNumber";
 	  							}
 
 	  			else { 
@@ -60,8 +60,8 @@ public String delPhoneNumber(@RequestParam("delPhoneNumber") String dni, Model m
 
 //Actualiza Número de Móvil
 
-@PostMapping("/repPhoneNumber/{PhoneNumberUpdate}") 
-public String Update(@PathVariable("PhoneNumberUpdate") String dni ,PhoneNumber phonenumber ,Model model) {
+@PostMapping("/reemplazarPhoneNumber/{PhoneNumberActualizar}") 
+public String Update(@PathVariable("PhoneNumberActualizar") String dni ,PhoneNumber phonenumber ,Model model) {
 
 	  Optional<PhoneNumber> phoneNumber = servicio.findById(dni);
 
@@ -71,7 +71,7 @@ if (phoneNumber.isPresent()) {
 			
 			servicio.save(phonenumber);
 		
-			return "redirect:/Santander/NumberUpdate";
+			return "redirect:/Santander/PhoneNumber";
 							} 
 				  else
 				  { 
@@ -80,7 +80,7 @@ if (phoneNumber.isPresent()) {
 				  }
 }
 
-@RequestMapping("/updPhoneNumber")
+@RequestMapping("/actualizarPhoneNumber")
 public String UpdatePhoneNumber(@RequestParam("UpdatePhoneNumber") String dni, Model model) {
 	 Optional<PhoneNumber> phonenumber = servicio.findById(dni);
 	 

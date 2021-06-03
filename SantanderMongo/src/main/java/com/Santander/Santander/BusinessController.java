@@ -23,11 +23,11 @@ public class BusinessController {
 	@RequestMapping("/Business")
 	public String ObtenerDatos(Model model) {
 		model.addAttribute("EtiquetaBD",servicio.findAll());
-		return "ListBusiness";
+		return "Usuarios";
 	}
 	
 	//Añade Tarjetas
-	@RequestMapping("/addBusiness") public String addBusiness(Business business ,Model model) {
+	@RequestMapping("/newBusiness") public String newBusiness(Business business ,Model model) {
 		  
 		 servicio.save(business);
 	 
@@ -35,22 +35,22 @@ public class BusinessController {
 	 }
 	
 	
-	@RequestMapping("/newBusiness") public String NewBusiness(Model model) {
+	@RequestMapping("/nuevoBusiness") public String NuevoBusiness(Model model) {
 
-		return "newBusiness"; }
+		return "nuevobusiness"; }
 	
 	
 	//Elimina Tarjetas
 
-	@RequestMapping("/delBusiness")
-	public String delBusiness(@RequestParam("delBusiness") String dni, Model model) {
+	@RequestMapping("/eliminarBusiness")
+	public String EliminarBusiness(@RequestParam("BusinessEliminar") String dni, Model model) {
 
 		  Optional<Business> business = servicio.findById(dni);
 
 		  if (business.isPresent()) {
 			  servicio.deleteById(dni);
 			  model.addAttribute("EtiquetaBD",servicio.findAll()); 
-			  return  "deleteBusiness";
+			  return  "DeleteBusiness";
 		  							}
 
 		  			else { 
@@ -60,8 +60,8 @@ public class BusinessController {
 	
 	//Actualiza Tarjeta
 
-	@PostMapping("/repBusiness{BusinessUpdate}") 
-	public String Update(@PathVariable("BusinessUpdate") String dni ,Business business ,Model model) {
+	@PostMapping("/reemplazarBusiness{BusinessActualizar}") 
+	public String Update(@PathVariable("BusinessActualizar") String dni ,Business business ,Model model) {
 
 		  Optional<Business> Business = servicio.findById(dni);
 
@@ -71,24 +71,24 @@ public class BusinessController {
 				
 				servicio.save(business);
 			
-				return "redirect:/Santander/BusinessUpdate";
+				return "redirect:/Santander/Business";
 								} 
 					  else
 					  { 
 						  System.out.println("No encuentra el número de tarjeta"); 
-						  return "BusinessNotFound"; 
+						  return "businessNotFound"; 
 					  }
 	}
 	
 
-@RequestMapping("/updBusiness")
+@RequestMapping("/actualizarBusiness")
 public String UpdateBusiness(@RequestParam("UpdateBusiness") String dni, Model model) {
 	 Optional<Business> business = servicio.findById(dni);
 	 
 	  	if (business.isPresent()) {
 	  		
 	  	model.addAttribute("businessFromDB", business.get());
-	    return "UpdateBusiness";						
+	    return "ActualizarBusiness";						
 	  								}
 	  	else
 	  		{

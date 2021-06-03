@@ -74,7 +74,7 @@ public class AddressController {
 	  }
 	  
 	  @RequestMapping("/actualizarAddress")
-	  public String UpdateAddress(@RequestParam("UsuarioActualizar") String dni, Model model) {
+	  public String UpdateAddress(@RequestParam("UsuarioDireccion") String dni, Model model) {
 		 Optional<Address> address = servicio.findById(dni);
 		 
 		  	if (address.isPresent()) {
@@ -92,4 +92,3 @@ public class AddressController {
 	 
 	
 	}
-

@@ -7,22 +7,20 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class PhoneNumber {
 	
 	private String DNI;
-	private PhoneNumber cellPhone;
+	private String cellPhone;
 	
 	
-	/*public PhoneNumber(String dNI,PhoneNumber phoneNumber) {
+	public PhoneNumber(String dNI, String cellPhone) {
 		super();
 		DNI = dNI;
-		this.cellPhone = phoneNumber;
-	}*/
-
-	public PhoneNumber(com.github.javafaker.PhoneNumber phoneNumber) {
-		// TODO Esbozo de constructor generado automáticamente
+		this.cellPhone = cellPhone;
 	}
 
-	public PhoneNumber(String dNI, com.github.javafaker.PhoneNumber phoneNumber) {
-		// TODO Esbozo de constructor generado automáticamente
+
+	public PhoneNumber() {
+		super();
 	}
+
 
 	public String getDNI() {
 		return DNI;
@@ -34,13 +32,13 @@ public class PhoneNumber {
 	}
 
 
-	public PhoneNumber getCellPhone() {
+	public String getCellPhone() {
 		return cellPhone;
 	}
 
 
-	public void setCellPhone(PhoneNumber phonenumber) {
-		this.cellPhone = phonenumber;
+	public void setCellPhone(String cellPhone) {
+		this.cellPhone = cellPhone;
 	}
 
 
@@ -48,6 +46,7 @@ public class PhoneNumber {
 	public String toString() {
 		return "PhoneNumber [DNI=" + DNI + ", cellPhone=" + cellPhone + "]";
 	}
+	
 	
 	
 	

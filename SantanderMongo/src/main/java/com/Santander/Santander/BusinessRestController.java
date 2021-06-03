@@ -37,7 +37,7 @@ public class BusinessRestController {
 	
 	
 	@DeleteMapping("/delBusiness/{DNI}")
-	public void DeleteChamp(@PathVariable String DNI) {
+	public void DeleteBuss(@PathVariable String DNI) {
 		if (servicio.findById(DNI) != null) {
 			servicio.deleteById(DNI);
 		}
