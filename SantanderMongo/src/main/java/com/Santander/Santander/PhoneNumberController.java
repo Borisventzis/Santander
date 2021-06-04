@@ -23,7 +23,7 @@ PhoneNumberRepository servicio;
 @RequestMapping("/PhoneNumber")
 public String ObtenerDatos(Model model) {
 	model.addAttribute("EtiquetaBD",servicio.findAll());
-	return "Usuarios";
+	return "PhoneNumber";
 }
 
 //Añade Móviles

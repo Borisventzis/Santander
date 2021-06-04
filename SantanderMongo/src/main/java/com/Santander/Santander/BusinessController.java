@@ -23,7 +23,7 @@ public class BusinessController {
 	@RequestMapping("/Business")
 	public String ObtenerDatos(Model model) {
 		model.addAttribute("EtiquetaBD",servicio.findAll());
-		return "Usuarios";
+		return "Business";
 	}
 	
 	//Añade Tarjetas
@@ -31,7 +31,7 @@ public class BusinessController {
 		  
 		 servicio.save(business);
 	 
-	 return "redirect:/Santander/ListBusiness"; 
+	 return "redirect:/Santander/Business"; 
 	 }
 	
 	
