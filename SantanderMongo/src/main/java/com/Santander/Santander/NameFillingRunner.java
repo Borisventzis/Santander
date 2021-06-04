@@ -26,24 +26,36 @@ public class NameFillingRunner implements CommandLineRunner {
 		ArrayList<Address> list =  new ArrayList<Address>();
 		
 		
-		//	if(nameRepository.count() < 0) 			{
-					while(i<100100) {
-						Address address = new Address(generador.address().fullAddress());
-						list.add(address);
-						
-						PhoneNumber phone = new PhoneNumber();
-						phone.setCellPhone(generador.phoneNumber().cellPhone());
-					Name crearObjeto = new Name("i"+i, generador.name().firstName(), generador.name().lastName(),phone,list);
-					nameRepository.save(crearObjeto);	
-					list.removeAll(list);
-					i++;
+			//if(nameRepository.count() < 0) 			{
 			
-									}
+			  while(i<101000) { Address address = new
+			  Address(generador.address().fullAddress()); list.add(address);
+			  
+			  PhoneNumber phone = new PhoneNumber(); phone.setDNI("i"+i);
+			  phone.setCellPhone(generador.phoneNumber().cellPhone());
+			  
+			  Job trabajo = new Job(); trabajo.setDNI("i"+i);
+			  trabajo.setKeySkills(generador.job().keySkills());
+			  trabajo.setPosition(generador.job().position());
+			  trabajo.setSeniority(generador.job().seniority());
+			  trabajo.setTitle(generador.job().title());
+			  
+			  Business tarjeta = new Business(); tarjeta.setDNI("i"+i);
+			  tarjeta.setCreditCardExpiry(generador.business().creditCardExpiry());
+			  tarjeta.setCreditCardNumber(generador.business().creditCardNumber());
+			  tarjeta.setCreditCardType(generador.business().creditCardType());
+			  
+			  Name crearObjeto = new Name("i"+i, generador.name().firstName(),
+			  generador.name().lastName(),trabajo, tarjeta ,phone,list);
+			  nameRepository.save(crearObjeto); list.removeAll(list); i++;
+			  
+			  }
+			 
 										//		}
 		
 		//nameRepository.deleteAll();
-		nameRepository.findAll().forEach((book) -> {
-			logger.info("{}", book);
+		nameRepository.findAll().forEach((Name) -> {
+			logger.info("{}", Name);
 		}
 	);
 	}
