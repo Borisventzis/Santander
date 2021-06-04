@@ -168,6 +168,10 @@
         <th>First Name</th>
         <th>Last Name</th>
         <th>Username</th>
+        <th>Phone</th>
+        <th>Job</th>
+        <th>Address</th>
+        <th>Bussiness</th>
         <th>Actions</th>
     </tr>
     </thead>
@@ -177,6 +181,14 @@
         <td th:text="${Name.firstName}" class="center"></td>
         <td  th:text="${Name.lastName}" class="center"></td>
         <td th:text="${Name.username}" class="center">
+        </td>
+        <td th:text="${Name.phone}" class="center">
+        </td>
+        <td th:text="${Name.job}" class="center">
+        </td>
+        <td th:text="${Name.address}" class="center">
+        </td>
+        <td th:text="${Name.business}" class="center">
         </td>
         <td class="center">
             <!--  <a class="btn btn-success" href="#">
