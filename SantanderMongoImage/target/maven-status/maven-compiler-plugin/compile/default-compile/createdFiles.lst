@@ -1,0 +1,13 @@
+com\Santander\Santander\NameRepository.class
+com\Santander\Santander\Name.class
+com\Santander\Santander\NameController.class
+com\Santander\Santander\SantanderApplication.class
+com\Santander\Santander\NameFillingRunner.class
+com\Santander\Santander\NameImageRepository.class
+com\Santander\Santander\SpringFoxConfig.class
+com\Santander\Santander\NameImageController.class
+com\Santander\Santander\NameRestController.class
+com\Santander\Santander\Address.class
+com\Santander\Santander\AddressRepository.class
+com\Santander\Santander\AddressController.class
+com\Santander\Santander\NameImage.class
